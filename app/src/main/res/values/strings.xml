@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Reelkilla</string>
+    <string name="service_description">Blocks Instagram Reels by detecting when the page opens.</string>
+</resources>
