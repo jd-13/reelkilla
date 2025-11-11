@@ -74,6 +74,11 @@ class ReelkillaService : AccessibilityService() {
                 continue
             }
 
+            val view = parent.parent
+            if (view.className != "android.widget.HorizontalScrollView") {
+                continue
+            }
+
             return true
         }
 
