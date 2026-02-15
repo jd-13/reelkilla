@@ -46,7 +46,8 @@ class ReelkillaService : AccessibilityService() {
         val text = node.text?.toString() ?: ""
         val desc = node.contentDescription?.toString() ?: ""
         val clazz = node.className?.toString() ?: ""
-        Log.d(TAG, "$prefix$clazz: text='$text' desc='$desc'")
+        val visible = node.isVisibleToUser.toString()
+        Log.d(TAG, "$prefix$clazz: text='$text' desc='$desc' visible='$visible'")
 
         for (i in 0 until node.childCount) {
             val child = node.getChild(i) ?: continue
@@ -66,16 +67,32 @@ class ReelkillaService : AccessibilityService() {
         //     android.widget.TextView: text='Friends' desc=''
 
         for (node in nodes) {
-            val parent = node.parent
-            if (parent.className != "android.widget.LinearLayout") {
+            if (node == null) {
                 continue
             }
-            if (parent.contentDescription != "Reels") {
+
+            if (!node.isVisibleToUser) {
+                continue
+            }
+
+            val parent = node.parent
+            if (parent == null) {
+                continue
+            }
+
+            if (parent.className != "android.widget.LinearLayout" ||
+                parent.contentDescription != "Reels" ||
+                !parent.isVisibleToUser) {
                 continue
             }
 
             val view = parent.parent
-            if (view.className != "android.widget.HorizontalScrollView") {
+            if (view == null) {
+                continue
+            }
+
+            if (view.className != "android.widget.HorizontalScrollView" ||
+                !view.isVisibleToUser) {
                 continue
             }
 
