@@ -1,4 +1,4 @@
-package com.jackdevlin.reelkilla
+package me.jdevlin.reelkilla
 
 import org.junit.Test
 

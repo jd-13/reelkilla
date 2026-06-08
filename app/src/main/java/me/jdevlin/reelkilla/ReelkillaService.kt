@@ -1,4 +1,4 @@
-package com.jackdevlin.reelkilla
+package me.jdevlin.reelkilla
 
 import android.accessibilityservice.AccessibilityService
 import android.app.NotificationChannel
@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import androidx.core.app.NotificationCompat
 
 class ReelkillaService : AccessibilityService() {
     companion object {

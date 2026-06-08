@@ -1,4 +1,4 @@
-package com.jackdevlin.reelkilla.ui.theme
+package me.jdevlin.reelkilla.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

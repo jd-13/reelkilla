@@ -1,4 +1,4 @@
-package com.jackdevlin.reelkilla
+package me.jdevlin.reelkilla
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.jackdevlin.reelkilla.ui.theme.ReelkillaTheme
+import me.jdevlin.reelkilla.ui.theme.ReelkillaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

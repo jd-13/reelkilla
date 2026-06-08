@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jackdevlin.reelkilla"
+    namespace = "com.jdevlin.reelkilla"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.jackdevlin.reelkilla"
+        applicationId = "me.jdevlin.reelkilla"
         minSdk = 30
         targetSdk = 36
         versionCode = 1
