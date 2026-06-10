@@ -14,7 +14,7 @@ keystorePropertiesFile.inputStream().use {
 }
 
 android {
-    namespace = "com.jdevlin.reelkilla"
+    namespace = "me.jdevlin.reelkilla"
     compileSdk = 36
 
     defaultConfig {
