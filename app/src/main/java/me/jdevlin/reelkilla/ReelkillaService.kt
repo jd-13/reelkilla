@@ -45,9 +45,9 @@ class ReelkillaService : AccessibilityService() {
         val text = node.text?.toString() ?: ""
         val desc = node.contentDescription?.toString() ?: ""
         val clazz = node.className?.toString() ?: ""
+        val id = node.viewIdResourceName ?: ""
         val visible = node.isVisibleToUser.toString()
-        Log.d(TAG, "$prefix$clazz: text='$text' desc='$desc' visible='$visible'")
-
+        Log.d(TAG, "$prefix$clazz id='$id' text='$text' desc='$desc' visible='$visible'")
         for (i in 0 until node.childCount) {
             val child = node.getChild(i) ?: continue
             printNodeHierarchy(child, depth + 1)
