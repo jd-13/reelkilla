@@ -66,9 +66,11 @@ class ReelkillaService : AccessibilityService() {
         val nodes = root.findAccessibilityNodeInfosByText("Reels")
 
         // We're looking for:
-        // android.widget.FrameLayout: text='' desc='' visible='true'
-        //   android.widget.Button: text='Reels' desc='' visible='true'
-        //   android.widget.LinearLayout: text='' desc='' visible='true'
+        // android.widget.HorizontalScrollView: text='' desc=''
+        //   android.widget.LinearLayout: text='' desc='Reels'
+        //     android.widget.TextView: text='Reels' desc=''
+        //   android.widget.LinearLayout: text='' desc='Friends'
+        //     android.widget.TextView: text='Friends' desc=''
 
         for (node in nodes) {
             if (node == null) {
@@ -79,28 +81,26 @@ class ReelkillaService : AccessibilityService() {
                 continue
             }
 
-            if (node.text != "Reels") {
-                continue
-            }
-
             val parent = node.parent
             if (parent == null) {
                 continue
             }
 
-            if (parent.className != "android.widget.FrameLayout" ||
+            if (parent.className != "android.widget.LinearLayout" ||
+                parent.contentDescription != "Reels" ||
                 !parent.isVisibleToUser) {
                 continue
             }
 
-//            val sibling = parent.getChild(1)
-//            if (sibling == null) {
-//                continue
-//            }
-//
-//            if (sibling.className != "android.widget.LinearLayout" || !sibling.isVisibleToUser) {
-//                continue
-//            }
+            val view = parent.parent
+            if (view == null) {
+                continue
+            }
+
+            if (view.className != "android.widget.HorizontalScrollView" ||
+                !view.isVisibleToUser) {
+                continue
+            }
 
             return true
         }
