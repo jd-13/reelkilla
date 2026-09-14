@@ -22,4 +22,13 @@ object NextOpenTimeStore {
             .putLong(KEY_NEXT_OPEN_AT, timestampMillis)
             .apply()
     }
+
+    fun advanceNextOpenAt(context: Context, durationMs: Long): Long {
+        val now = System.currentTimeMillis()
+        val current = getNextOpenAt(context)
+        val nextOpenAt = if (current <= now) now else current
+        val updatedValue = nextOpenAt + durationMs
+        setNextOpenAt(context, updatedValue)
+        return updatedValue
+    }
 }

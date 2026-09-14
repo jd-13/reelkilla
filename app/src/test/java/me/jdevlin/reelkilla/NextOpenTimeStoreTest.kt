@@ -38,4 +38,14 @@ class NextOpenTimeStoreTest {
 
         assertTrue("zero should mean available now", value == 0L)
     }
+
+    @Test
+    fun advancingFromZeroMovesForwardFromNow() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val before = System.currentTimeMillis()
+        val value = NextOpenTimeStore.advanceNextOpenAt(context, 30L * 60L * 1000L)
+        val after = System.currentTimeMillis()
+
+        assertTrue("advanced value should be now + 30 minutes", value in (before + 30L * 60L * 1000L)..(after + 30L * 60L * 1000L))
+    }
 }
