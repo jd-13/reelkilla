@@ -29,13 +29,20 @@ class ReelkillaService : AccessibilityService() {
             val pkg = event?.packageName?.toString() ?: return
 
             val rootNode = rootInActiveWindow ?: return
+            val now = System.currentTimeMillis()
 
 //            printNodeHierarchy(rootNode, 0)
 
-            // Detect Instagram Reels activity (name may vary with updates)
-            if (pkg == "com.instagram.android" && isReelsScreen(rootNode)) {
-                // Simulate a Back button press
-                performGlobalAction(GLOBAL_ACTION_BACK)
+            if (pkg == "com.instagram.android") {
+                val nextOpenAt = NextOpenTimeStore.getNextOpenAt(this)
+
+                if (nextOpenAt > now) {
+                    performGlobalAction(GLOBAL_ACTION_HOME)
+                }
+
+                if (isReelsScreen(rootNode)) {
+                    performGlobalAction(GLOBAL_ACTION_BACK)
+                }
             }
         }
     }
