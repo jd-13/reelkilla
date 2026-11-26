@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import me.jdevlin.reelkilla.ui.theme.ReelkillaTheme
+import me.jdevlin.reelkilla.widget.ReelkillaWidget
 import kotlin.math.max
 
 class MainActivity : ComponentActivity() {
@@ -67,6 +68,7 @@ private fun MainScreen() {
     val onDurationSelected: (Long) -> Unit = { durationMs ->
         nextOpenAt = NextOpenTimeStore.advanceNextOpenAt(context, durationMs)
         now = System.currentTimeMillis()
+        ReelkillaWidget.refreshAll(context)
     }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
