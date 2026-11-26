@@ -7,7 +7,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-const val WIDGET_IDLE_TEXT = "0:00"
+const val WIDGET_IDLE_TEXT = "Unlocked"
 
 /**
  * Text shown on the home screen widget.
