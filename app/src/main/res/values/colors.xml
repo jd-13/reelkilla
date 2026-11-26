@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Home screen widget (Material 3 baseline primary container) -->
+    <color name="widget_background">#FFEADDFF</color>
+    <color name="widget_text">#FF21005D</color>
 </resources>

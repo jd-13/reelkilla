@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Reelkilla</string>
     <string name="service_description">Blocks Instagram Reels by detecting when the page opens.</string>
+    <string name="widget_description">Shows when Instagram unblocks. Tap to add 30 minutes.</string>
+    <string name="widget_content_description">Instagram block end time. Tap to add 30 minutes.</string>
 </resources>

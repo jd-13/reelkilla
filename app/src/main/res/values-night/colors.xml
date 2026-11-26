@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home screen widget (Material 3 baseline primary container, dark) -->
+    <color name="widget_background">#FF4F378B</color>
+    <color name="widget_text">#FFEADDFF</color>
+</resources>
