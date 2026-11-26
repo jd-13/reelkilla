@@ -59,6 +59,8 @@ private fun MainScreen() {
 
     LaunchedEffect(Unit) {
         while (isActive) {
+            // Re-read so changes made elsewhere (e.g. the home screen widget) show up.
+            nextOpenAt = NextOpenTimeStore.getNextOpenAt(context)
             now = System.currentTimeMillis()
             delay(1000)
         }
